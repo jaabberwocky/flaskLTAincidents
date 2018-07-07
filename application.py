@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import Form
 from wtforms import SubmitField
-from appconfig import AccountKey, DATA_URL
+from appconfig import AccountKey, DATA_URL 
 import requests
 import json
 import datetime
@@ -37,7 +37,8 @@ def index():
 			"(SGT)"])
 		# converts to json objects using the HTTP request from DataMall
 		incidents = json.loads(requests.request("GET", DATA_URL, headers=headers).text)
-		# each value is an incident
+		# each value is an incident, 
+		# we pass this as a dictionary to be iterated with the template
 		values = incidents["value"]
 		return render_template("index.html", values=values, time=time, form=form)
 	else:
