@@ -1,0 +1,53 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+	{{ super() }}
+	<link href="static/style.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}LTA TRAFFIC INCIDENTS {% endblock %}
+
+{% block content %}
+<div class ="container">
+	<div class="page-header">
+		<h1>Hello!</h1>
+		<p>Please click submit below to see the current list of traffic incidents!</p>
+	</div>
+</div>
+<div class="container">
+	{{ wtf.quick_form(form) }}
+</div>
+</div>
+{% if values|length > 0 %}
+	<div class = "container">
+		<hr>
+		<p>Retrieved at {{ time }}</p>
+		<table class ="table">
+			<thead>
+				<tr>
+					<th scope="col">Type</th>
+					<th scope="col">Latitude</th>
+					<th scope="col">Longitude</th>
+					<th scope="col">Message</th>
+				</tr>
+			{% for val in values %}
+				<tr>
+					<th scope="row">{{ val["Type"] }}</th>
+					<td>{{ val["Latitude"] }}</td>
+					<td>{{ val["Longitude"] }}</td>
+					<td>{{ val["Message"] }}</td>
+				</tr>
+			{% endfor %}
+{% endif %}
+	</div>
+<footer class="footer">
+	<div class="container">
+		<span class="text-muted">Done by Tobias Leong</span>
+	</div>
+</footer>
+{% endblock %}
+
+
+
+
+
