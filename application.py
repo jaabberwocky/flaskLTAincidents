@@ -15,13 +15,13 @@ headers = {
 class SubmitForm(Form):
 	submit = SubmitField("Submit")
 
-app = Flask(__name__)
-bootstrap = Bootstrap(app)
+application = Flask(__name__)
+bootstrap = Bootstrap(application)
 #secretkey
-app.config['SECRET_KEY'] = "hellowtfwtfwtf1234"
+application.config['SECRET_KEY'] = "hellowtfwtfwtf1234"
 
 # routes
-@app.route('/', methods=['GET','POST'])
+@application.route('/', methods=['GET','POST'])
 def index():
 	form = SubmitForm()
 	if form.validate_on_submit():
@@ -36,4 +36,4 @@ def index():
 
 # run app
 if __name__ == "__main__":
-	app.run(debug=True)
+	application.run()
