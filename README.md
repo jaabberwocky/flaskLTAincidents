@@ -8,5 +8,7 @@ Technologies used:
 - Bootstrap
 
 
-~~*TODO*: host on AWS~~
-ElasticBeanStalk deployment [here](http://flask-trafficincidents.ktgrbduxyn.ap-southeast-1.elasticbeanstalk.com)!
+## TODO: 
+
+- ~~host on AWS~~  ElasticBeanStalk deployment [here](http://flask-trafficincidents.ktgrbduxyn.ap-southeast-1.elasticbeanstalk.com)!
+- Integrate with Mapbox/Leaflet.js
