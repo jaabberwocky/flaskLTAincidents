@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import SubmitField
 from appconfig import AccountKey, DATA_URL 
 import requests
@@ -17,7 +17,7 @@ application = Flask(__name__)
 bootstrap = Bootstrap(application)
 
 # class submit form button
-class SubmitForm(Form):
+class SubmitForm(FlaskForm):
 	submit = SubmitField("Submit")
 
 #secretkey
