@@ -6,26 +6,32 @@ from appconfig import AccountKey, DATA_URL
 import requests
 import json
 import datetime
+from pytz import timezone
 
 headers = {
 	'accountkey': AccountKey
 }
 
+# instantiate app objects
+application = Flask(__name__)
+bootstrap = Bootstrap(application)
+
 # class submit form button
 class SubmitForm(Form):
 	submit = SubmitField("Submit")
 
-application = Flask(__name__)
-bootstrap = Bootstrap(application)
 #secretkey
 application.config['SECRET_KEY'] = "hellowtfwtfwtf1234"
 
+# set timezone
+timezone = timezone("Asia/Singapore")
 # routes
 @application.route('/', methods=['GET','POST'])
 def index():
 	form = SubmitForm()
 	if form.validate_on_submit():
-		time = str(datetime.datetime.now())
+		time = " ".join([timezone.localize(datetime.datetime.now()).strftime("%A %d-%m-%Y %H:%M:%S"), 
+			"(SGT)"])
 		incidents = json.loads(requests.request("GET", DATA_URL, headers=headers).text)
 		values = incidents["value"]
 		return render_template("index.html", values=values, time=time, form=form)
