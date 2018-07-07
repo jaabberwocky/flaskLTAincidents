@@ -2,4 +2,4 @@
 
 Simple Flask app for learning purposes!
 
-TODO: host on AWS
+*TODO*: host on AWS
