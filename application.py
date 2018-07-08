@@ -39,11 +39,14 @@ def index():
 		incidents = json.loads(requests.request("GET", DATA_URL, headers=headers).text)
 		# each value is an incident, 
 		# we pass this as a dictionary to be iterated with the template
-		values = incidents["value"]
+		try:
+			values = incidents["value"]
+		except KeyError:
+			return render_template("404.html"), 404
 		return render_template("index.html", values=values, time=time, form=form)
 	else:
 		return render_template("index.html", form=form)
 
 # run app
 if __name__ == "__main__":
-	application.run()
+	application.run(debug=True)
