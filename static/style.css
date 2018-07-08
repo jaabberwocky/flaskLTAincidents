@@ -1,9 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah");
+
 html {
   position: relative;
   min-height: 100%;
 }
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+h1 {
+  font-family:'Gloria Hallelujah', cursive;
 }
 .footer {
   position: absolute;
