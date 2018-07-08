@@ -6,6 +6,7 @@ Simple Flask app for learning purposes!
 Technologies used:
 - Flask
 - Bootstrap
+- LeafletJS
 
 
 ## TODO: 
