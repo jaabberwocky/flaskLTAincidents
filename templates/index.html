@@ -45,7 +45,7 @@
 				</tr>
 			{% for val in values %}
 				<tr>
-					<th scope="row">{{ val["Type"] }}</th>
+					<td><b>{{ val["Type"] }}</b></td>
 					<td>{{ val["Latitude"] }}</td>
 					<td>{{ val["Longitude"] }}</td>
 					<td>{{ val["Message"] }}</td>
@@ -55,7 +55,14 @@
 			<div class = "container">
 				<div id="mapid"></div>
 				<script src="static/leafletJS.js"></script>
+				{% for val in values %}
+				<script>
+					var marker = L.marker([{{ val["Latitude"] }}, {{val["Longitude"]}} ], {
+						color: 'red',
+					}).addTo(mymap).bindPopup("{{ val["Message"]}}").openPopup();
+					</script>
 	</div>
+				{% endfor %}
 {% endif %}
 	</div>
 <footer class="footer">
