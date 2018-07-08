@@ -57,9 +57,7 @@
 				<script src="static/leafletJS.js"></script>
 				{% for val in values %}
 				<script>
-					var marker = L.marker([{{ val["Latitude"] }}, {{val["Longitude"]}} ], {
-						color: 'red',
-					}).addTo(mymap).bindPopup("{{ val["Message"]}}").openPopup();
+					var marker = L.marker([{{ val["Latitude"] }}, {{val["Longitude"]}} ]).addTo(mymap).bindPopup("<b>{{val["Type"]}}</b> : {{ val["Message"]}}").openPopup();
 					</script>
 	</div>
 				{% endfor %}
