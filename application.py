@@ -47,6 +47,10 @@ def index():
 	else:
 		return render_template("index.html", form=form)
 
+@application.errorhandler(404)
+def page_not_found(e):
+	return render_template('404.html'), 404
+
 # run app
 if __name__ == "__main__":
 	application.run()
