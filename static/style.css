@@ -11,6 +11,15 @@ body {
 h1 {
   font-family:'Gloria Hallelujah', cursive;
 }
+
+a.top {
+  color:black;
+}
+
+a.top:link {
+  text-decoration:none;
+  color:black;
+}
 .footer {
   position: absolute;
   bottom: 0;
